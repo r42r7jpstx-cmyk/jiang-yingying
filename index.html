@@ -9,7 +9,6 @@
 :root{
   --max-width:1280px;
   --text-width:760px;
-  --primary:#0a2540;
   --dark:#0c1622;
   --dark-soft:#111c2a;
   --gray:#7a8699;
@@ -22,24 +21,6 @@ body{
   color:#111;
   background:#fff;
 }
-
-/* GLOBAL */
-.container{
-  max-width:var(--max-width);
-  margin:auto;
-  padding:120px 20px;
-}
-.text-column{max-width:var(--text-width)}
-h1{font-size:56px;color:#fff;margin-bottom:22px}
-h2{font-size:34px;color:var(--primary);margin-bottom:18px}
-h3{
-  font-size:13px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--gray);
-  margin-bottom:14px;
-}
-p{font-size:16px;color:#444;margin-bottom:18px}
 
 /* NAV */
 nav{
@@ -58,7 +39,6 @@ nav ul{
   gap:42px;
 }
 nav a{
-  position:relative;
   text-decoration:none;
   color:#111;
   font-size:13px;
@@ -99,14 +79,19 @@ nav a{
   max-width:var(--max-width);
   margin:auto;
   padding:0 20px;
+  color:#fff;
 }
-.hero p{
-  color:#e5e7eb;
+.hero-inner h1{
+  font-size:56px;
+  margin-bottom:22px;
+}
+.hero-inner p{
   max-width:680px;
   font-size:18px;
+  color:#e5e7eb;
 }
 
-/* === NEW: HERO SIDE CONTEXT === */
+/* HERO CONTEXT */
 .hero-context{
   position:absolute;
   top:50%;
@@ -118,14 +103,25 @@ nav a{
   color:rgba(229,231,235,.45);
   line-height:1.6;
 }
-.hero-context.left{
-  left:36px;
-  text-align:left;
+.hero-context.left{left:36px;text-align:left}
+.hero-context.right{right:36px;text-align:right}
+
+/* SECTIONS */
+.container{
+  max-width:var(--max-width);
+  margin:auto;
+  padding:120px 20px;
 }
-.hero-context.right{
-  right:36px;
-  text-align:right;
+.text-column{max-width:var(--text-width)}
+h2{font-size:34px;margin-bottom:18px}
+h3{
+  font-size:13px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--gray);
+  margin-bottom:14px;
 }
+p{font-size:16px;color:#444;margin-bottom:18px}
 
 /* BLOCK */
 .block{
@@ -134,18 +130,23 @@ nav a{
   gap:70px;
   align-items:center;
 }
+.block.reverse{
+  grid-template-columns:1fr 1fr;
+  direction:rtl;
+}
+.block.reverse > *{direction:ltr}
 .block img{
   width:100%;
   border-radius:22px;
 }
 
-/* DARK SECTION */
+/* DARK */
 .section-dark{
   background:var(--dark-soft);
   color:#e5e7eb;
 }
-.section-dark h2{color:#fff}
 .section-dark p{color:#cbd5e1}
+.section-dark h2{color:#fff}
 
 /* FOOTER */
 footer{
@@ -157,15 +158,14 @@ footer{
   max-width:720px;
   margin:auto;
   text-align:center;
+  font-size:14px;
 }
 
 /* MOBILE */
 @media(max-width:900px){
-  h1{font-size:38px}
-  h2{font-size:28px}
+  .hero-inner h1{font-size:38px}
   .container{padding:80px 16px}
-  .block{grid-template-columns:1fr}
-  /* Mobile hides hero context */
+  .block,.block.reverse{grid-template-columns:1fr;direction:ltr}
   .hero-context{display:none}
 }
 </style>
@@ -177,23 +177,20 @@ footer{
 <ul>
 <li><a href="#hero">Home</a></li>
 <li><a href="#about">About</a></li>
-<li><a href="#perspective">Perspective</a></li>
+<li><a href="#industry">Industry</a></li>
 <li><a href="#experience">Experience</a></li>
-<li><a href="#values">Method</a></li>
-<li><a href="#based">Based In</a></li>
+<li><a href="#awards">Recognition</a></li>
 </ul>
 </nav>
 
 <!-- HERO -->
 <section id="hero" class="hero">
 
-  <!-- LEFT CONTEXT -->
   <div class="hero-context left">
     Industry<br>
     Beauty · Medical Aesthetics
   </div>
 
-  <!-- RIGHT CONTEXT -->
   <div class="hero-context right">
     Based in<br>
     Newport Beach, CA
@@ -212,181 +209,182 @@ footer{
   </div>
 </section>
 
-<!-- 02 · SECOND VISUAL -->
+<!-- SECOND VISUAL -->
 <section class="container">
-<div class="block">
-<img src="hero-02.jpg">
-<div class="text-column">
-<h3>Observation</h3>
-<h2>From Titles to Thinking</h2>
-<p>
-I don’t approach this industry through titles or trends.
-What matters to me is how decisions age —
-operationally, ethically, and structurally.
-</p>
-</div>
-</div>
+  <div class="block">
+    <img src="hero-02.jpg">
+    <div class="text-column">
+      <h3>Observation</h3>
+      <h2>From Titles to Thinking</h2>
+      <p>
+        I don’t approach this industry through titles or trends.
+        What matters to me is how decisions age —
+        operationally, ethically, and structurally.
+      </p>
+    </div>
+  </div>
 </section>
 
-<!-- 03 · ABOUT -->
+<!-- ABOUT TIMELINE -->
 <section id="about" class="container">
-<div class="block">
-<img src="profile-01.jpg">
-<div class="text-column">
-<h3>About</h3>
-<h2>A Real Path Into the Industry</h2>
-<p>
-I entered this field through direct exposure rather than a predefined plan.
-Certain experiences shaped how I understand professionalism,
-long-term responsibility, and sustainable growth.
-</p>
-<p>
-For me, “professionalism” is not presentation —
-it is the ability to make sound decisions under complexity and time.
-</p>
-</div>
-</div>
-</section>
-
-<!-- 04 · INDUSTRY PERSPECTIVE -->
-<section id="perspective" class="container section-dark">
-<div class="block">
-<div class="text-column">
-<h3>Industry Perspective</h3>
-<h2>Long-Term Value vs Short-Term Stimulation</h2>
-<p>
-Much of this industry is driven by short-term excitement.
-What lasts, however, is built on systems, discipline,
-and respect for operational reality.
-</p>
-<p>
-True differentiation emerges where brand,
-medical responsibility, and execution meet —
-not where trends peak.
-</p>
-</div>
-<img src="industry-01.jpg">
-</div>
+  <div class="block">
+    <img src="profile-01.jpg">
+    <div class="text-column">
+      <h3>About</h3>
+      <h2>Entering the Industry Through Reality</h2>
+      <p>
+        I didn’t enter this field through a predefined career plan.
+        My understanding of professionalism was shaped early by direct exposure
+        to operational reality — where brand ideals, hierarchy,
+        and commercial constraints intersect.
+      </p>
+      <p>
+        Starting from the ground level, I learned how systems function under pressure,
+        and how upstream decisions translate into downstream outcomes.
+      </p>
+    </div>
+  </div>
 </section>
 
 <section class="container">
-<div class="block">
-<img src="industry-02.jpg">
-<img src="industry-03.jpg">
-</div>
-</section>
-
-<!-- 05 · EXPERIENCE -->
-<section id="experience" class="container">
-<div class="block">
-<img src="work-01.jpg">
-<div class="text-column">
-<h3>Experience</h3>
-<h2>Thinking Is Only Meaningful When Executed</h2>
-<p>
-I don’t emphasize titles or company lists.
-What matters is the level of complexity handled,
-the relationship between decision and execution,
-and accountability for outcomes.
-</p>
-</div>
-</div>
+  <div class="block reverse">
+    <img src="profile-02.jpg">
+    <div class="text-column">
+      <h2>Building a Structured Business Foundation</h2>
+      <p>
+        My academic training began with Economics and Management at UCLA,
+        forming a rigorous analytical foundation for business decision-making.
+      </p>
+      <p>
+        Prior to Oxford, I independently relocated to Shanghai and joined Edelman,
+        where frontline public relations work sharpened my understanding
+        of brand systems, organizational dynamics, and real-world execution.
+      </p>
+    </div>
+  </div>
 </section>
 
 <section class="container">
-<div class="block">
-<div class="text-column">
-<p>
-This execution-focused mindset is what allows ideas
-to translate into repeatable systems rather than one-off success.
-</p>
-</div>
-<img src="work-02.jpg">
-</div>
-</section>
-
-<!-- 06 · METHOD & VALUES -->
-<section id="values" class="container section-dark">
-<div class="block">
-<img src="detail-01.jpg">
-<div class="text-column">
-<h3>Method & Values</h3>
-<h2>How I Work</h2>
-<p>
-Efficiency must serve clarity, not speed.
-Data informs judgment, but never replaces it.
-Under pressure, composure is a discipline.
-</p>
-</div>
-</div>
+  <div class="block">
+    <img src="work-01.jpg">
+    <div class="text-column">
+      <h2>From Global Training to Operational Sensitivity</h2>
+      <p>
+        In 2012, I joined Shiseido as the starting point of my industry career.
+        This experience shaped my sensitivity to retail systems,
+        standardized brand operations, supply rhythm,
+        and in-store execution.
+      </p>
+      <p>
+        It is also why I can read operational complexity fluently
+        across both luxury beauty and medical aesthetics today.
+      </p>
+    </div>
+  </div>
 </section>
 
 <section class="container">
-<div class="block">
-<img src="detail-02.jpg">
-<div class="text-column">
-<p>
-Progress, not perfection —
-systems that can be verified outperform inspiration over time.
-</p>
-</div>
-</div>
+  <div class="block reverse">
+    <img src="work-02.jpg">
+    <div class="text-column">
+      <h2>Advanced Studies & Cross-Cultural Strategy</h2>
+      <p>
+        At Oxford, I pursued advanced studies in Marketing, Management,
+        and Finance, focusing on cross-cultural market strategy.
+      </p>
+      <p>
+        Through executive and doctoral-level coursework at USC,
+        I further deepened my research into global luxury brand operations
+        and high-end consumer behavior.
+      </p>
+    </div>
+  </div>
 </section>
 
-<!-- 07 · BASED IN -->
+<!-- INDUSTRY -->
+<section id="industry" class="container section-dark">
+  <div class="text-column">
+    <h3>Industry Perspective</h3>
+    <h2>Long-Term Value Over Short-Term Stimulation</h2>
+    <p>
+      My work spans two interconnected worlds:
+      regional growth and retail operations for a Swiss luxury skincare brand,
+      and system-level planning within medical aesthetics.
+    </p>
+    <p>
+      What connects them is not aesthetics, but structure —
+      the ability to translate experience into repeatable,
+      data-informed results.
+    </p>
+    <p>
+      In an industry often driven by short-term stimulation,
+      sustainable value is built through discipline,
+      operational clarity,
+      and long-term trust between brand,
+      practitioner,
+      and consumer.
+    </p>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards" class="container">
+  <div class="block">
+    <img src="award-01.jpg">
+    <div class="text-column">
+      <h3>Recognition</h3>
+      <h2>Regional Performance Excellence</h2>
+      <p>
+        Recognized with La Prairie’s Annual Top Sales Award
+        for regional performance driven by disciplined planning,
+        execution, and cross-functional coordination.
+      </p>
+    </div>
+  </div>
+</section>
+
 <section class="container">
-<div class="block">
-<img src="location-01.jpg">
-<div class="text-column">
-<h3>Based In</h3>
-<h2>Newport Beach, California</h2>
-<p>
-Working globally while remaining grounded locally.
-Professional decisions are made within real-world constraints,
-not abstractions.
-</p>
-</div>
-</div>
+  <div class="block reverse">
+    <img src="award-02.jpg">
+    <div class="text-column">
+      <h2>The Legend of Caviar · Rodeo Drive</h2>
+      <p>
+        A themed art exhibition and private VIP dinner event
+        hosted on Rodeo Drive, Beverly Hills.
+      </p>
+      <p>
+        Within 48 hours post-event,
+        California caviar collection sales increased by 35% year-over-year,
+        and the campaign was later cited by headquarters
+        as a benchmark luxury marketing case.
+      </p>
+    </div>
+  </div>
 </section>
 
 <section class="container">
-<div class="block">
-<img src="location-02.jpg">
-<div class="text-column">
-<p>
-Geography shapes perspective —  
-clarity comes from understanding both scope and limits.
-</p>
-</div>
-</div>
+  <div class="block">
+    <img src="award-03.jpg">
+    <div class="text-column">
+      <h2>Community & Philanthropic Recognition</h2>
+      <p>
+        Awarded by Foster Love for sustained philanthropic engagement
+        and community involvement.
+      </p>
+      <p>
+        I consider social responsibility a long-term commitment,
+        not an occasional gesture.
+      </p>
+    </div>
+  </div>
 </section>
 
-<!-- 08 · PROFESSIONAL ENGAGEMENT -->
-<section class="container">
-<div class="block">
-<img src="event-01.jpg">
-<div class="text-column">
-<h3>Professional Engagement</h3>
-<h2>Selective Industry Participation</h2>
-<p>
-I participate selectively in industry conferences
-and professional exchanges where long-term thinking,
-standards, and substance matter.
-</p>
-</div>
-</div>
-</section>
-
-<!-- 09 · FOOTER -->
 <footer>
-<div class="footer-inner">
-<p>
-Jiang Yingying<br>
-Long-term industry perspective
-</p>
-</div>
+  <div class="footer-inner">
+    Jiang Yingying<br>
+    Long-term industry perspective
+  </div>
 </footer>
 
 </body>
 </html>
-
