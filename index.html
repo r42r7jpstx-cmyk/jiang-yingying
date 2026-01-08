@@ -1,142 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rejuve Trade Center</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jiang Yingying</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:#000;
+  color:#fff;
+  line-height:1.7;
+}
+img{width:100%;display:block}
+section{padding:110px 8vw}
+h1,h2{font-weight:500;letter-spacing:.4px}
+p{opacity:.85;max-width:900px}
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: #000;
-      color: #fff;
-      line-height: 1.6;
-    }
+/* ===== HERO VIDEO ===== */
+.hero{
+  position:relative;
+  height:100vh;
+  overflow:hidden;
+}
+.hero video{
+  position:absolute;
+  top:50%;left:50%;
+  min-width:100%;min-height:100%;
+  transform:translate(-50%,-50%);
+  object-fit:cover;
+}
+.hero::after{
+  content:"";
+  position:absolute;inset:0;
+  background:rgba(0,0,0,.45);
+}
+.hero-content{
+  position:relative;z-index:2;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:0 20px;
+}
+.hero-content h1{
+  font-size:clamp(36px,6vw,64px);
+  margin-bottom:18px;
+}
+.hero-content p{
+  font-size:18px;
+  max-width:720px;
+}
 
-    /* =======================
-       HERO VIDEO
-    ======================= */
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-    }
+/* ===== VISUAL BLOCK ===== */
+.visual{
+  padding:0;
+}
+.visual img{
+  height:80vh;
+  object-fit:cover;
+}
 
-    .hero video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      transform: translate(-50%, -50%);
-      object-fit: cover;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.45);
-      z-index: 1;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 0 20px;
-    }
-
-    .hero-content h1 {
-      font-size: clamp(36px, 6vw, 64px);
-      font-weight: 500;
-      letter-spacing: 1px;
-      margin-bottom: 16px;
-    }
-
-    .hero-content p {
-      font-size: clamp(16px, 2.2vw, 20px);
-      max-width: 720px;
-      opacity: 0.85;
-      margin: 0 auto;
-    }
-
-    /* =======================
-       BASIC SECTION STYLE
-    ======================= */
-    section {
-      padding: 100px 8vw;
-      background: #000;
-    }
-
-    section h2 {
-      font-size: 32px;
-      font-weight: 500;
-      margin-bottom: 24px;
-    }
-
-    section p {
-      max-width: 900px;
-      opacity: 0.85;
-    }
-
-    /* =======================
-       RESPONSIVE
-    ======================= */
-    @media (max-width: 768px) {
-      .hero {
-        height: 90vh;
-      }
-    }
-  </style>
+/* ===== TWO COLUMN ===== */
+.two-col{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+}
+@media(max-width:900px){
+  section{padding:80px 6vw}
+  .two-col{grid-template-columns:1fr}
+  .visual img{height:60vh}
+}
+</style>
 </head>
 
 <body>
 
-  <!-- =======================
-       HERO
-  ======================= -->
-  <section class="hero">
-    <video autoplay muted loop playsinline>
-      <source src="hero.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-
-    <div class="hero-content">
-      <div>
-        <h1>Rejuve Trade Center</h1>
-        <p>
-          A specialized medical & aesthetic device trade platform connecting
-          global manufacturers with premium clinical partners.
-        </p>
-      </div>
+<!-- 01 · HERO -->
+<section class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content">
+    <div>
+      <h1>Jiang Yingying</h1>
+      <p>
+        A long-term observer and participant in the medical & aesthetic industry,
+        focused on judgment, structure, and sustainability rather than titles.
+      </p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- =======================
-       COMPANY OVERVIEW
-  ======================= -->
-  <section>
-    <h2>Company Overview</h2>
+<!-- 02 · SECOND VISUAL -->
+<section class="visual">
+  <img src="hero-02.jpg" alt="">
+</section>
+
+<section>
+  <p>
+    I don’t approach this industry through trends or surface narratives.
+    What matters to me is how decisions age over time — operationally,
+    ethically, and structurally.
+  </p>
+</section>
+
+<!-- 03 · ABOUT -->
+<section class="two-col">
+  <img src="profile-01.jpg" alt="">
+  <div>
+    <h2>About</h2>
     <p>
-      Rejuve Trade Center is dedicated to the global distribution of advanced
-      medical and aesthetic technologies. We focus on compliance-driven trade,
-      long-term clinical partnerships, and reliable international logistics.
+      I entered this field through real operational exposure rather than a
+      predefined career plan. Certain experiences — not timelines —
+      shaped how I evaluate risk, quality, and long-term value.
     </p>
-  </section>
+    <p>
+      Professionalism, to me, is not presentation. It is the ability to remain
+      clear-headed across complexity and time.
+    </p>
+  </div>
+</section>
+
+<!-- 04 · INDUSTRY PERSPECTIVE -->
+<section>
+  <h2>Industry Perspective</h2>
+  <p>
+    Much of this industry is misunderstood. Short-term excitement often masks
+    structural weaknesses. Sustainable brands, clinics, and systems operate
+    under very different principles.
+  </p>
+</section>
+
+<section class="two-col">
+  <img src="industry-01.jpg">
+  <img src="industry-02.jpg">
+</section>
+
+<!-- 05 · EXPERIENCE -->
+<section>
+  <h2>Experience</h2>
+  <p>
+    Rather than listing roles or organizations, I focus on the level of
+    complexity handled — decisions made under uncertainty, responsibility
+    for outcomes, and the ability to execute without distortion.
+  </p>
+</section>
+
+<section class="two-col">
+  <img src="work-01.jpg">
+  <img src="work-02.jpg">
+</section>
+
+<!-- 06 · METHOD & VALUES -->
+<section>
+  <h2>Method & Values</h2>
+  <p>
+    I believe efficiency must serve clarity, not speed.
+    Data informs judgment, but never replaces it.
+    Pressure is inevitable — instability is optional.
+  </p>
+</section>
+
+<section class="two-col">
+  <img src="detail-01.jpg">
+  <img src="detail-02.jpg">
+</section>
+
+<!-- 07 · BASED IN -->
+<section>
+  <h2>Based In</h2>
+  <p>
+    Based in a global working radius.
+    My professional and personal life exist in the same physical reality —
+    no abstraction, no performance.
+  </p>
+</section>
+
+<section class="two-col">
+  <img src="location-01.jpg">
+  <img src="location-02.jpg">
+</section>
+
+<!-- 08 · PROFESSIONAL ENGAGEMENT -->
+<section>
+  <h2>Professional Engagement</h2>
+  <p>
+    Occasional industry participation.
+    Observation over exposure.
+  </p>
+</section>
+
+<section class="visual">
+  <img src="event-01.jpg">
+</section>
+
+<!-- 09 · FOOTER -->
+<section>
+  <p>
+    Jiang Yingying<br>
+    Long-term industry perspective<br><br>
+    contact@email.com
+  </p>
+</section>
 
 </body>
 </html>
