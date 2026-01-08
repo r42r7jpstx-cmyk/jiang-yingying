@@ -1,216 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jiang Yingying</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --max-width:1280px;
+  --text-width:760px;
+  --primary:#0a2540;
+  --dark:#0c1622;
+  --dark-soft:#111c2a;
+  --gray:#7a8699;
+  --light:#f4f6f9;
+}
+*{box-sizing:border-box}
 body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-  background:#000;
-  color:#fff;
-  line-height:1.8;
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
+  line-height:1.75;
+  color:#111;
+  background:#fff;
 }
-img{display:block;width:100%}
 
-/* 全站统一容器：文字永远不超过图片宽度 */
-.section{
-  padding:140px 6vw;
-}
+/* GLOBAL */
 .container{
-  max-width:720px;
-  margin:0 auto;
+  max-width:var(--max-width);
+  margin:auto;
+  padding:120px 20px;
 }
-.image{
-  max-width:720px;
-  margin:0 auto 48px;
+.text-column{max-width:var(--text-width)}
+h1{font-size:56px;color:#fff;margin-bottom:22px}
+h2{font-size:34px;color:var(--primary);margin-bottom:18px}
+h3{
+  font-size:13px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--gray);
+  margin-bottom:14px;
 }
-.image.small{max-width:560px}
-p{opacity:.85}
-h1,h2{font-weight:500;letter-spacing:.4px;margin-bottom:24px}
+p{font-size:16px;color:#444;margin-bottom:18px}
 
-/* 01 Hero */
+/* NAV */
+nav{
+  position:sticky;
+  top:0;
+  background:#fff;
+  border-bottom:1px solid rgba(0,0,0,.06);
+  z-index:100;
+}
+nav ul{
+  list-style:none;
+  margin:0;
+  padding:18px 20px;
+  display:flex;
+  justify-content:center;
+  gap:42px;
+}
+nav a{
+  position:relative;
+  text-decoration:none;
+  color:#111;
+  font-size:13px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+nav a::after{
+  content:'';
+  position:absolute;
+  left:50%;
+  bottom:-8px;
+  width:0;
+  height:1px;
+  background:var(--primary);
+  transition:.35s ease;
+  transform:translateX(-50%);
+}
+nav a:hover::after{width:100%}
+
+/* HERO */
 .hero{
-  padding-top:180px;
-  padding-bottom:120px;
-  text-align:center;
+  position:relative;
+  min-height:92vh;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  background:var(--dark);
 }
-.hero img{
-  max-width:640px;
-  margin:0 auto 64px;
+.hero video{
+  position:absolute;
+  top:50%;left:50%;
+  width:100%;height:100%;
+  object-fit:cover;
+  transform:translate(-50%,-50%);
+  z-index:1;
 }
-.hero h1{
-  font-size:40px;
+.hero::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    rgba(12,22,34,.65),
+    rgba(12,22,34,.85)
+  );
+  z-index:2;
+}
+.hero-inner{
+  position:relative;
+  z-index:3;
+  max-width:var(--max-width);
+  margin:auto;
+  padding:0 20px;
 }
 .hero p{
-  font-size:17px;
+  color:#e5e7eb;
+  max-width:680px;
+  font-size:18px;
 }
 
-/* 02 Second Visual */
-.second p{
-  font-size:16px;
+/* BLOCK */
+.block{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:center;
+}
+.block img{
+  width:100%;
+  border-radius:22px;
 }
 
-/* 09 Footer */
+/* DARK SECTION */
+.section-dark{
+  background:var(--dark-soft);
+  color:#e5e7eb;
+}
+.section-dark h2{color:#fff}
+.section-dark p{color:#cbd5e1}
+
+/* FOOTER */
 footer{
-  padding:160px 6vw 100px;
+  background:#0c1622;
+  padding:100px 20px;
+  color:#cbd5e1;
+}
+.footer-inner{
+  max-width:720px;
+  margin:auto;
   text-align:center;
+}
+.footer-inner p{
+  margin:0;
   font-size:14px;
-  opacity:.6;
+  line-height:1.6;
 }
 
-/* Mobile */
-@media(max-width:768px){
-  .section{padding:100px 6vw}
-  .hero{padding-top:140px}
-  .hero img{max-width:100%}
+/* MOBILE */
+@media(max-width:900px){
+  h1{font-size:38px}
+  h2{font-size:28px}
+  .container{padding:80px 16px}
+  .block{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<nav>
+<ul>
+<li><a href="#hero">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#perspective">Perspective</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#values">Values</a></li>
+</ul>
+</nav>
+
 <!-- 01 · HERO -->
-<section class="section hero">
-  <img src="hero-01.jpg" alt="">
-  <div class="container">
-    <h1>Jiang Yingying</h1>
-    <p>
-      A long-term observer of how industries evolve —
-      and how judgment compounds over time.
-    </p>
-  </div>
+<section id="hero" class="hero">
+<video autoplay muted loop playsinline preload="auto">
+  <source src="hero.mp4" type="video/mp4">
+</video>
+<div class="hero-inner">
+<h1>Jiang Yingying</h1>
+<p>
+I focus on how industries evolve over time —  
+and how judgment, structure, and discipline compound into long-term outcomes.
+</p>
+</div>
 </section>
 
 <!-- 02 · SECOND VISUAL -->
-<section class="section second">
-  <div class="image">
-    <img src="hero-02.jpg" alt="">
-  </div>
-  <div class="container">
-    <p>
-      I don’t approach this industry through titles or trends.
-      What matters to me is how decisions age —
-      operationally, ethically, and structurally.
-    </p>
-  </div>
+<section class="container">
+<div class="block">
+<img src="hero-02.jpg">
+<div class="text-column">
+<h3>Observation</h3>
+<h2>From Titles to Thinking</h2>
+<p>
+I don’t approach this industry through titles or trends.
+What matters to me is how decisions age —
+operationally, ethically, and structurally.
+</p>
+</div>
+</div>
 </section>
 
 <!-- 03 · ABOUT -->
-<section class="section">
-  <div class="image">
-    <img src="profile-01.jpg" alt="">
-  </div>
-  <div class="container">
-    <h2>About</h2>
-    <p>
-      I entered this field through direct exposure rather than a predefined plan.
-      Certain experiences shaped how I understand professionalism,
-      responsibility, and long-term value.
-    </p>
-  </div>
-  <div class="image small">
-    <img src="profile-02.jpg" alt="">
-  </div>
+<section id="about" class="container">
+<div class="block">
+<img src="profile-01.jpg">
+<div class="text-column">
+<h3>About</h3>
+<h2>A Real Path Into the Industry</h2>
+<p>
+I entered this field through direct exposure rather than a predefined plan.
+Certain experiences shaped how I understand professionalism,
+long-term responsibility, and sustainable growth.
+</p>
+<p>
+For me, “professionalism” is not presentation —
+it is the ability to make sound decisions under complexity and time.
+</p>
+</div>
+</div>
 </section>
 
 <!-- 04 · INDUSTRY PERSPECTIVE -->
-<section class="section">
-  <div class="image">
-    <img src="industry-01.jpg" alt="">
-  </div>
-  <div class="container">
-    <h2>Industry Perspective</h2>
-    <p>
-      Much of this industry is misunderstood.
-      Short-term stimulation often hides structural weakness.
-      Long-term value is built through discipline, systems,
-      and respect for complexity.
-    </p>
-  </div>
-  <div class="image small">
-    <img src="industry-02.jpg" alt="">
-  </div>
-  <div class="image small">
-    <img src="industry-03.jpg" alt="">
-  </div>
+<section id="perspective" class="container section-dark">
+<div class="block">
+<div class="text-column">
+<h3>Industry Perspective</h3>
+<h2>Long-Term Value vs Short-Term Stimulation</h2>
+<p>
+Much of this industry is driven by short-term excitement.
+What lasts, however, is built on systems, discipline,
+and respect for operational reality.
+</p>
+<p>
+True differentiation emerges where brand,
+medical responsibility, and execution meet —
+not where trends peak.
+</p>
+</div>
+<img src="industry-01.jpg">
+</div>
+</section>
+
+<section class="container">
+<div class="block">
+<img src="industry-02.jpg">
+<img src="industry-03.jpg">
+</div>
 </section>
 
 <!-- 05 · EXPERIENCE -->
-<section class="section">
-  <div class="image">
-    <img src="work-01.jpg" alt="">
-  </div>
-  <div class="container">
-    <h2>Experience</h2>
-    <p>
-      I don’t list roles or organizations.
-      What matters is the level of complexity handled,
-      the relationship between decision and execution,
-      and accountability for outcomes.
-    </p>
-  </div>
-  <div class="image small">
-    <img src="work-02.jpg" alt="">
-  </div>
+<section id="experience" class="container">
+<div class="block">
+<img src="work-01.jpg">
+<div class="text-column">
+<h3>Experience</h3>
+<h2>Thinking Is Only Meaningful When Executed</h2>
+<p>
+I don’t emphasize titles or company lists.
+What matters is the level of complexity handled,
+the relationship between decision and execution,
+and accountability for outcomes.
+</p>
+</div>
+</div>
+</section>
+
+<section class="container">
+<div class="block">
+<div class="text-column">
+<p>
+This execution-focused mindset is what allows ideas
+to translate into repeatable systems rather than one-off success.
+</p>
+</div>
+<img src="work-02.jpg">
+</div>
 </section>
 
 <!-- 06 · METHOD & VALUES -->
-<section class="section">
-  <div class="image">
-    <img src="detail-01.jpg" alt="">
-  </div>
-  <div class="container">
-    <h2>Method & Values</h2>
-    <p>
-      Efficiency must serve clarity.
-      Data informs judgment but never replaces it.
-      Under pressure, composure is a discipline.
-    </p>
-  </div>
-  <div class="image small">
-    <img src="detail-02.jpg" alt="">
-  </div>
+<section id="values" class="container section-dark">
+<div class="block">
+<img src="detail-01.jpg">
+<div class="text-column">
+<h3>Method & Values</h3>
+<h2>How I Work</h2>
+<p>
+Efficiency must serve clarity, not speed.
+Data informs judgment, but never replaces it.
+Under pressure, composure is a discipline.
+</p>
+</div>
+</div>
+</section>
+
+<section class="container">
+<div class="block">
+<img src="detail-02.jpg">
+<div class="text-column">
+<p>
+Progress, not perfection —
+systems that can be verified outperform inspiration over time.
+</p>
+</div>
+</div>
 </section>
 
 <!-- 07 · BASED IN -->
-<section class="section">
-  <div class="image">
-    <img src="location-01.jpg" alt="">
-  </div>
-  <div class="container">
-    <h2>Based In</h2>
-    <p>
-      Based in Newport Beach, California.
-      Working globally, grounded locally.
-    </p>
-  </div>
-  <div class="image small">
-    <img src="location-02.jpg" alt="">
-  </div>
+<section class="container">
+<div class="block">
+<img src="location-01.jpg">
+<div class="text-column">
+<h3>Based In</h3>
+<h2>Newport Beach, California</h2>
+<p>
+Working globally while remaining grounded locally.
+Professional decisions are made within real-world constraints,
+not abstractions.
+</p>
+</div>
+</div>
+</section>
+
+<section class="container">
+<div class="block">
+<img src="location-02.jpg">
+<div class="text-column">
+<p>
+Geography shapes perspective —  
+clarity comes from understanding both scope and limits.
+</p>
+</div>
+</div>
 </section>
 
 <!-- 08 · PROFESSIONAL ENGAGEMENT -->
-<section class="section">
-  <div class="image">
-    <img src="event-01.jpg" alt="">
-  </div>
-  <div class="container">
-    <h2>Professional Engagement</h2>
-    <p>
-      Occasional participation in industry conferences
-      and professional exchanges.
-    </p>
-  </div>
+<section class="container">
+<div class="block">
+<img src="event-01.jpg">
+<div class="text-column">
+<h3>Professional Engagement</h3>
+<h2>Selective Industry Participation</h2>
+<p>
+I participate selectively in industry conferences
+and professional exchanges where long-term thinking,
+standards, and substance matter.
+</p>
+</div>
+</div>
 </section>
 
 <!-- 09 · FOOTER -->
 <footer>
-  Jiang Yingying<br>
-  Long-term industry perspective<br><br>
-  contact@email.com
+<div class="footer-inner">
+<p>
+Jiang Yingying<br>
+Long-term industry perspective
+</p>
+</div>
 </footer>
 
 </body>
