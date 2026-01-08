@@ -13,223 +13,202 @@ body{
   color:#fff;
   line-height:1.8;
 }
-img{width:100%;display:block}
-section{padding:120px 8vw}
-.container{max-width:1100px;margin:0 auto}
-h1,h2,h3{font-weight:500;letter-spacing:.4px}
-p{max-width:760px;opacity:.85}
+img{display:block;width:100%}
 
-/* NAV */
-nav{
-  position:fixed;
-  top:0;left:0;width:100%;
-  padding:18px 8vw;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:rgba(0,0,0,.35);
-  backdrop-filter:blur(6px);
-  z-index:10;
+/* 全站统一容器：文字永远不超过图片宽度 */
+.section{
+  padding:140px 6vw;
 }
-nav span{font-weight:500}
-nav a{
-  color:#fff;
-  text-decoration:none;
-  font-size:14px;
-  margin-left:24px;
-  opacity:.7;
+.container{
+  max-width:720px;
+  margin:0 auto;
 }
-nav a:hover{opacity:1}
+.image{
+  max-width:720px;
+  margin:0 auto 48px;
+}
+.image.small{max-width:560px}
+p{opacity:.85}
+h1,h2{font-weight:500;letter-spacing:.4px;margin-bottom:24px}
 
-/* HERO */
-.hero{position:relative;height:100vh;overflow:hidden}
-.hero video{
-  position:absolute;top:50%;left:50%;
-  min-width:100%;min-height:100%;
-  transform:translate(-50%,-50%);
-  object-fit:cover;
-}
-.hero::after{
-  content:"";position:absolute;inset:0;
-  background:rgba(0,0,0,.55);
-}
-.hero-inner{
-  position:relative;z-index:2;
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+/* 01 Hero */
+.hero{
+  padding-top:180px;
+  padding-bottom:120px;
   text-align:center;
-  padding:0 20px;
 }
-.hero-inner h1{
-  font-size:clamp(36px,6vw,60px);
+.hero img{
+  max-width:640px;
+  margin:0 auto 64px;
 }
-.hero-inner p{
-  margin-top:18px;
-  font-size:18px;
+.hero h1{
+  font-size:40px;
+}
+.hero p{
+  font-size:17px;
 }
 
-/* LAYOUT */
-.text-only{padding-top:160px;padding-bottom:160px}
-.block{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:80px;
-  align-items:center;
+/* 02 Second Visual */
+.second p{
+  font-size:16px;
 }
-.block img{max-width:480px}
 
-/* IMAGE CENTER */
-.image-center{
-  display:flex;
-  justify-content:center;
-  margin-top:60px;
-}
-.image-center img{max-width:520px}
-
-/* FOOTER */
+/* 09 Footer */
 footer{
-  padding:140px 8vw 80px;
+  padding:160px 6vw 100px;
+  text-align:center;
   font-size:14px;
   opacity:.6;
 }
 
-/* MOBILE */
-@media(max-width:900px){
-  section{padding:80px 6vw}
-  .block{grid-template-columns:1fr;gap:40px}
-  .block img,.image-center img{max-width:100%}
+/* Mobile */
+@media(max-width:768px){
+  .section{padding:100px 6vw}
+  .hero{padding-top:140px}
+  .hero img{max-width:100%}
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-  <span>Jiang Yingying</span>
-  <div>
-    <a href="#work">Work</a>
-    <a href="#perspective">Perspective</a>
-    <a href="#background">Background</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-
-<section class="hero">
-  <video autoplay muted loop playsinline>
-    <source src="hero.mp4" type="video/mp4">
-  </video>
-  <div class="hero-inner">
-    <div>
-      <h1>Jiang Yingying</h1>
-      <p>
-        Progress, not perfection.<br>
-        Building systems where experience becomes a repeatable result.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="text-only">
+<!-- 01 · HERO -->
+<section class="section hero">
+  <img src="hero-01.jpg" alt="">
   <div class="container">
+    <h1>Jiang Yingying</h1>
     <p>
-      My work lives at the intersection of two worlds:
-      Swiss luxury beauty brand growth and medical aesthetics management.
-      What connects them is simple — turning experience into systems,
-      and judgment into long-term trust.
+      A long-term observer of how industries evolve —
+      and how judgment compounds over time.
     </p>
   </div>
 </section>
 
-<section id="work">
-  <div class="container block">
-    <div>
-      <h2>Luxury Beauty · La Prairie</h2>
-      <p>
-        As Regional Marketing Director for California, I participate in
-        strategic decision-making and translate direction into execution —
-        from sales planning and retail operations to VIP engagement
-        and data-driven reporting.
-      </p>
-    </div>
-    <img src="work-01.jpg" alt="">
+<!-- 02 · SECOND VISUAL -->
+<section class="section second">
+  <div class="image">
+    <img src="hero-02.jpg" alt="">
+  </div>
+  <div class="container">
+    <p>
+      I don’t approach this industry through titles or trends.
+      What matters to me is how decisions age —
+      operationally, ethically, and structurally.
+    </p>
   </div>
 </section>
 
-<section>
-  <div class="container block">
+<!-- 03 · ABOUT -->
+<section class="section">
+  <div class="image">
+    <img src="profile-01.jpg" alt="">
+  </div>
+  <div class="container">
+    <h2>About</h2>
+    <p>
+      I entered this field through direct exposure rather than a predefined plan.
+      Certain experiences shaped how I understand professionalism,
+      responsibility, and long-term value.
+    </p>
+  </div>
+  <div class="image small">
+    <img src="profile-02.jpg" alt="">
+  </div>
+</section>
+
+<!-- 04 · INDUSTRY PERSPECTIVE -->
+<section class="section">
+  <div class="image">
     <img src="industry-01.jpg" alt="">
-    <div>
-      <h2>Medical Aesthetics</h2>
-      <p>
-        Through BioMed Systems and medical aesthetics salons,
-        I work with dermatology and aesthetic clinics to introduce
-        advanced technologies and non-invasive treatment systems,
-        prioritizing safety, personalization, and long-term outcomes.
-      </p>
-    </div>
   </div>
-</section>
-
-<section id="perspective">
   <div class="container">
     <h2>Industry Perspective</h2>
     <p>
-      Beauty is not a result — it is a process of continuous optimization.
-      Short-term excitement fades; systems, data, and trust compound.
+      Much of this industry is misunderstood.
+      Short-term stimulation often hides structural weakness.
+      Long-term value is built through discipline, systems,
+      and respect for complexity.
     </p>
-    <div class="image-center">
-      <img src="industry-02.jpg">
-    </div>
+  </div>
+  <div class="image small">
+    <img src="industry-02.jpg" alt="">
+  </div>
+  <div class="image small">
+    <img src="industry-03.jpg" alt="">
   </div>
 </section>
 
-<section id="background">
-  <div class="container block">
-    <div>
-      <h2>Professional Foundation</h2>
-      <p>
-        From economics at UCLA to marketing and finance at Oxford,
-        followed by research at USC and early industry training at Shiseido,
-        my background shaped how I understand structure, operations,
-        and cross-cultural brand systems.
-      </p>
-    </div>
-    <img src="profile-01.jpg">
+<!-- 05 · EXPERIENCE -->
+<section class="section">
+  <div class="image">
+    <img src="work-01.jpg" alt="">
+  </div>
+  <div class="container">
+    <h2>Experience</h2>
+    <p>
+      I don’t list roles or organizations.
+      What matters is the level of complexity handled,
+      the relationship between decision and execution,
+      and accountability for outcomes.
+    </p>
+  </div>
+  <div class="image small">
+    <img src="work-02.jpg" alt="">
   </div>
 </section>
 
-<section>
-  <div class="container block">
-    <img src="detail-01.jpg">
-    <div>
-      <h2>Method & Values</h2>
-      <p>
-        I don’t rely on inspiration.
-        I trust systems that can be verified,
-        decisions that return to data,
-        and composure under pressure.
-      </p>
-    </div>
+<!-- 06 · METHOD & VALUES -->
+<section class="section">
+  <div class="image">
+    <img src="detail-01.jpg" alt="">
+  </div>
+  <div class="container">
+    <h2>Method & Values</h2>
+    <p>
+      Efficiency must serve clarity.
+      Data informs judgment but never replaces it.
+      Under pressure, composure is a discipline.
+    </p>
+  </div>
+  <div class="image small">
+    <img src="detail-02.jpg" alt="">
   </div>
 </section>
 
-<section>
-  <div class="container block">
-    <div>
-      <h2>Based In</h2>
-      <p>
-        Newport Beach, California.<br>
-        Working globally, grounded locally.
-      </p>
-    </div>
-    <img src="location-01.jpg">
+<!-- 07 · BASED IN -->
+<section class="section">
+  <div class="image">
+    <img src="location-01.jpg" alt="">
+  </div>
+  <div class="container">
+    <h2>Based In</h2>
+    <p>
+      Based in Newport Beach, California.
+      Working globally, grounded locally.
+    </p>
+  </div>
+  <div class="image small">
+    <img src="location-02.jpg" alt="">
   </div>
 </section>
 
-<footer id="contact">
-  Jiang Yingying · Newport Beach, CA<br>
+<!-- 08 · PROFESSIONAL ENGAGEMENT -->
+<section class="section">
+  <div class="image">
+    <img src="event-01.jpg" alt="">
+  </div>
+  <div class="container">
+    <h2>Professional Engagement</h2>
+    <p>
+      Occasional participation in industry conferences
+      and professional exchanges.
+    </p>
+  </div>
+</section>
+
+<!-- 09 · FOOTER -->
+<footer>
+  Jiang Yingying<br>
   Long-term industry perspective<br><br>
   contact@email.com
 </footer>
