@@ -27,34 +27,103 @@ body{
   background:#fff;
 }
 
-/* NAV */
-nav{
+/* =========================
+   NAV – DESKTOP + MOBILE
+   ========================= */
+.site-nav{
   position:sticky;
   top:0;
   background:#fff;
   border-bottom:1px solid rgba(0,0,0,.06);
-  z-index:100;
+  z-index:1000;
 }
-nav ul{
-  list-style:none;
-  margin:0;
-  padding:18px 20px;
+.nav-inner{
+  max-width:1280px;
+  margin:0 auto;
+  padding:16px 20px;
   display:flex;
-  justify-content:center;
-  gap:42px;
+  align-items:center;
+  justify-content:space-between;
 }
-nav a{
+.nav-logo{
+  font-size:14px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:42px;
+  margin:0;
+  padding:0;
+}
+.nav-links a{
   text-decoration:none;
   color:#111;
   font-size:13px;
   letter-spacing:.14em;
   text-transform:uppercase;
 }
+.nav-toggle{
+  display:none;
+  font-size:22px;
+  cursor:pointer;
+}
+
+/* =========================
+   MOBILE FULLSCREEN MENU
+   ========================= */
+.mobile-menu{
+  position:fixed;
+  inset:0;
+  background:#fff;
+  z-index:2000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+}
+.mobile-menu ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+  text-align:center;
+}
+.mobile-menu li{
+  margin:18px 0;
+}
+.mobile-menu a{
+  font-size:20px;
+  text-decoration:none;
+  color:#111;
+}
+.mobile-menu-close{
+  position:absolute;
+  top:24px;
+  right:24px;
+  font-size:24px;
+  cursor:pointer;
+}
+
+@media(max-width:900px){
+  .nav-links{display:none}
+  .nav-toggle{display:block}
+}
 
 /* =========================
    HERO – FINAL EDITORIAL
    ========================= */
-.hero video{
+.hero{
+  position:relative;
+  min-height:100vh;
+  overflow:hidden;
+}
+.hero-stage{
+  position:relative;
+  max-width:1440px;
+  margin:0 auto;
+  min-height:100vh;
+}
+.hero-stage video{
   position:absolute;
   top:0;
   right:0;
@@ -97,22 +166,21 @@ nav a{
   color:#e5e7eb;
 }
 
-/* Mobile Hero */
 @media(max-width:900px){
+  .hero-stage video{
+    position:relative;
+    width:100%;
+    height:60vh;
+  }
   .hero-inner{
     padding:0 24px;
+    min-height:auto;
   }
   .hero-inner h1{
     font-size:44px;
   }
 }
-/* HERO STAGE – CENTER THE WHOLE COMPOSITION */
-.hero-stage{
-  position:relative;
-  max-width:1440px;
-  margin:0 auto;              /* 整体居中 */
-  min-height:100vh;
-}
+
 /* =========================
    SECTIONS
    ========================= */
@@ -181,7 +249,6 @@ footer{
   margin-bottom:12px;
 }
 
-/* RESPONSIVE */
 @media(max-width:900px){
   .container{padding:80px 16px}
   .block,.block.reverse{grid-template-columns:1fr}
@@ -191,17 +258,31 @@ footer{
 
 <body>
 
-<nav>
-<ul>
-<li><a href="#hero">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#industry">Industry</a></li>
-<li><a href="#experience">Experience</a></li>
-<li><a href="#awards">Recognition</a></li>
-</ul>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <div class="nav-logo">Jiang Yingying</div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#industry">Industry</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#awards">Recognition</a></li>
+    </ul>
+    <div class="nav-toggle" onclick="openMenu()">☰</div>
+  </div>
 </nav>
 
-<!-- HERO -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-close" onclick="closeMenu()">✕</div>
+  <ul>
+    <li><a href="#hero" onclick="closeMenu()">Home</a></li>
+    <li><a href="#about" onclick="closeMenu()">About</a></li>
+    <li><a href="#industry" onclick="closeMenu()">Industry</a></li>
+    <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
+    <li><a href="#awards" onclick="closeMenu()">Recognition</a></li>
+  </ul>
+</div>
+
 <section id="hero" class="hero">
   <div class="hero-stage">
     <div class="hero-inner">
@@ -212,7 +293,6 @@ footer{
         Progress, not perfection.
       </p>
     </div>
-
     <video autoplay muted loop playsinline preload="auto">
       <source src="hero.mp4" type="video/mp4">
     </video>
@@ -338,37 +418,39 @@ footer{
     <div class="text-column">
       <h3>What I Do</h3>
       <h2>Luxury Beauty Operations</h2>
+
       <p>
-As a Non-Executive Director, I fulfill governance and oversight responsibilities at the board level,
-ensuring the company operates in accordance with sound governance principles
-and in the best interests of all shareholders.
-</p>
+        As a Non-Executive Director, I fulfill governance and oversight responsibilities at the board level,
+        ensuring the company operates in accordance with sound governance principles
+        and in the best interests of all shareholders.
+      </p>
 
-<p>
-I participate in discussions of major and long-term strategic decisions,
-providing an independent perspective to assess strategic direction,
-execution feasibility, and potential risks,
-while maintaining appropriate checks and balances.
-</p>
+      <p>
+        I participate in discussions of major and long-term strategic decisions,
+        providing an independent perspective to assess strategic direction,
+        execution feasibility, and potential risks,
+        while maintaining appropriate checks and balances.
+      </p>
 
-<p>
-My role includes oversight of senior management performance and governance mechanisms,
-contributing to the selection, evaluation, and incentive alignment of key executives,
-and ensuring accountability within the leadership structure.
-</p>
+      <p>
+        My role includes oversight of senior management performance and governance mechanisms,
+        contributing to the selection, evaluation, and incentive alignment of key executives,
+        and ensuring accountability within the leadership structure.
+      </p>
 
-<p>
-I oversee the establishment and effective operation of the company’s risk management
-and internal control frameworks, with particular attention to operational,
-financial, and compliance-related risks.
-</p>
+      <p>
+        I oversee the establishment and effective operation of the company’s risk management
+        and internal control frameworks, with particular attention to operational,
+        financial, and compliance-related risks.
+      </p>
 
-<p>
-Maintaining independence of judgment, I actively exercise my duty to question,
-advise, and provide objective opinions on significant matters,
-supporting the board’s collective responsibility for supervision,
-balance, and long-term value creation.
-</p>
+      <p>
+        Maintaining independence of judgment, I actively exercise my duty to question,
+        advise, and provide objective opinions on significant matters,
+        supporting the board’s collective responsibility for supervision,
+        balance, and long-term value creation.
+      </p>
+
     </div>
   </div>
 </section>
@@ -444,10 +526,14 @@ balance, and long-term value creation.
   </div>
 </footer>
 
+<script>
+function openMenu(){
+  document.getElementById('mobileMenu').style.display = 'flex';
+}
+function closeMenu(){
+  document.getElementById('mobileMenu').style.display = 'none';
+}
+</script>
+
 </body>
 </html>
-</body>
-</html>
-
-
-
