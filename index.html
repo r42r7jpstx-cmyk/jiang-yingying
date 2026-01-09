@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jiang Yingying</title>
 
+<!-- 高端衬线字体（仅用于 Hero） -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
 :root{
   --max-width:1280px;
@@ -46,99 +51,69 @@ nav a{
   text-transform:uppercase;
 }
 
-/* =================================================
-   HERO – NEW LOGIC (EDITORIAL / EXHIBITION STYLE)
-   ================================================= */
-
-/* Base hero */
+/* =========================
+   HERO – FINAL EDITORIAL
+   ========================= */
 .hero{
   position:relative;
   min-height:100vh;
-  background:#0c1622;
   overflow:hidden;
 }
-
-/* Video as visual stage */
 .hero video{
   position:absolute;
-  right:0;
-  top:0;
-  width:65vw;
+  inset:0;
+  width:100%;
   height:100%;
   object-fit:cover;
 }
-
-/* Text pavilion */
+.hero::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    90deg,
+    rgba(12,22,34,.85) 0%,
+    rgba(12,22,34,.65) 35%,
+    rgba(12,22,34,.25) 60%,
+    rgba(12,22,34,.15) 100%
+  );
+}
 .hero-inner{
   position:relative;
   z-index:2;
-  width:420px;
+  max-width:640px;
+  padding:0 64px;
   min-height:100vh;
-  padding:0 56px;
   display:flex;
   flex-direction:column;
   justify-content:center;
-  background:#0c1622;
   color:#fff;
 }
-
-/* Typography */
 .hero-inner h1{
-  font-size:42px;
-  line-height:1.15;
-  margin-bottom:20px;
+  font-family:'Playfair Display', serif;
+  font-size:64px;
+  line-height:1.05;
+  margin-bottom:24px;
 }
 .hero-inner p{
-  font-size:15px;
-  line-height:1.6;
-  color:#d1d5db;
-  max-width:320px;
+  font-size:16px;
+  max-width:420px;
+  color:#e5e7eb;
 }
 
-/* ========== LARGE / FULLSCREEN FEEL ========== */
-@media(min-width:1280px){
-  .hero video{
-    width:72vw; /* 视频明显放大 */
-  }
+/* Mobile Hero */
+@media(max-width:900px){
   .hero-inner{
-    width:360px; /* 文字更克制 */
-    padding-left:72px;
+    padding:0 24px;
   }
   .hero-inner h1{
     font-size:44px;
   }
 }
 
-/* ========== VERY LARGE / CINEMATIC ========== */
-@media(min-width:1600px){
-  .hero video{
-    width:78vw;
-  }
-  .hero-inner{
-    width:320px;
-  }
-}
-
-/* Mobile */
-@media(max-width:900px){
-  .hero{
-    display:block;
-  }
-  .hero video{
-    position:relative;
-    width:100%;
-    height:60vh;
-  }
-  .hero-inner{
-    width:100%;
-    min-height:auto;
-    padding:80px 24px;
-  }
-}
-
-/* =================================================
+/* =========================
    SECTIONS
-   ================================================= */
+   ========================= */
 .container{
   max-width:var(--max-width);
   margin:auto;
@@ -196,8 +171,12 @@ footer{
   max-width:760px;
   margin:auto;
   text-align:center;
-  font-size:14px;
   line-height:1.8;
+}
+.footer-inner .name{
+  font-family:'Playfair Display', serif;
+  font-size:26px;
+  margin-bottom:12px;
 }
 
 /* RESPONSIVE */
@@ -230,7 +209,6 @@ footer{
       Progress, not perfection.
     </p>
   </div>
-
   <video autoplay muted loop playsinline preload="auto">
     <source src="hero.mp4" type="video/mp4">
   </video>
@@ -453,7 +431,7 @@ balance, and long-term value creation.
 
 <footer>
   <div class="footer-inner">
-    Jiang Yingying<br><br>
+    <div class="name">Jiang Yingying</div>
     <strong>Work Email</strong><br>
     haileyjiang1018@gmail.com<br><br>
     <strong>Company Address</strong><br>
@@ -463,4 +441,7 @@ balance, and long-term value creation.
 
 </body>
 </html>
+</body>
+</html>
+
 
